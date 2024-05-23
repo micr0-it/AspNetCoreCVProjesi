@@ -1,0 +1,34 @@
+﻿@model List<Announcement>
+@{
+    string color = "";
+}
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+    <p class="mb-0 font-weight-normal float-left dropdown-header">Bildirimler</p>
+    @foreach (var item in Model)
+    {
+        if (item.Type == "Yeni Yazı")
+            color = "preview-icon bg-danger";
+        if (item.Type == "Yeni Video")
+            color = "preview-icon bg-primary";
+        if (item.Type == "Konferans")
+            color = "preview-icon bg-info";
+        if (item.Type == "Atölye Eğitimi")
+            color = "preview-icon bg-warning";
+        if (item.Type == "Bootcamp")
+            color = "preview-icon bg-success";
+
+        <a class="dropdown-item preview-item" href="User/Default/AnnouncementDetails/@item.AnnouncementID/">
+            <div class="preview-thumbnail">
+                <div class="@color">
+                    <i class="ti-info-alt mx-0"></i>
+                </div>
+            </div>
+            <div class="preview-item-content">
+                <h6 class="preview-subject font-weight-normal">@item.Title</h6>
+                <p class="font-weight-light small-text mb-0 text-muted">
+                    @item.Type
+                </p>
+            </div>
+        </a>
+    }
+</div>

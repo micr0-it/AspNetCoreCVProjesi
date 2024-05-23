@@ -1,0 +1,50 @@
+﻿@model List<WriterMessage>
+
+@{
+    ViewData["Title"] = "SenderMessageList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>SenderMessageList</h1>
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazarr-Admin Giden Kutusu</h4>
+                <p class="card-description">
+                    Deneyimleri gösteren tablo
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Alıcı </th>
+                                <th> Konu </th>
+                                <th> Tarih </th>
+                                <th> Mesajı Gör </th>
+                                <th> Sil </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td> @item.WriterMessageID </td>
+                                    <td> @item.ReceiverName </td>
+                                    <td> @item.Subject </td>
+                                    <td> @item.Date</td>
+                                    <td style="width:10%"><a href="/MessageAdmin/AdminMessageDetails/@item.WriterMessageID" type="button" class="btn btn-warning btn-fw">Mesajı Gör</a></td>
+                                    <td style="width:10%"><a href="/MessageAdmin/DeleteAdminMessage/@item.WriterMessageID" type="button" class="btn btn-danger btn-fw">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <a as="AdminMessageAdd" class="btn btn-outline-primary">Yeni Mesaj Oluştur</a>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

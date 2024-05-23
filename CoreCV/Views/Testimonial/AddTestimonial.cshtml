@@ -1,0 +1,27 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AddTestimonial</h1>
+
+<form class="forms-sample" asp-action="AddTestimonial" asp-controller="Testimonial" method="post">
+    <div class="form-group">
+        <label>Referans İsmi</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Lütfen bir değer giriniz...">
+    </div>
+    <div class="form-group">
+        <label>Firma ve Unvan</label>
+        <input type="text" class="form-control" asp-for="Company" placeholder="Lütfen bir değer giriniz...">
+    </div>
+    <div class="form-group">
+        <label>Referans Metni</label>
+        <input type="text" class="form-control" asp-for="Comment" placeholder="Lütfen bir değer giriniz...">
+    </div>
+    <div class="form-group">
+        <label>Referans Görsel</label>
+        <input type="text" class="form-control" asp-for="ImgUrl" placeholder="Lütfen bir değer giriniz...">
+    </div>
+    <button type="submit" class="btn btn-primary mr-2">Ekle</button>
+</form>

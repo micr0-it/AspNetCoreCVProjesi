@@ -1,0 +1,107 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="getListAll" class="btn btn-outline-primary">verileri getir</button>
+        <button type="button" id="addExperience" class="btn btn-outline-warning">kaydet</button>
+        <button type="button" id="getListID" class="btn btn-outline-info">id ile getir </button>
+        <button type="button" id="deleteExperience" class="btn btn-outline-info">sil</button>
+    </div>
+</div>
+<h4 class="text-center">Deneyim List</h4>
+<div class="p-2" id="listExperience">
+</div>
+<br />
+<div class="p-2" id="listExperienceGetID">
+</div>
+<br />
+<div class="col-md-12">
+    <h4>Ekleme Paneli</h4>
+    <input type="text" class="form-control" id="inpName" placeholder="Ad Gir" />
+    <input type="text" class="form-control" id="inpDate" placeholder="Tarih Gir" />
+</div>
+<div class="col-md-12">
+    <h4>Id'ye göre getirme panel'</h4>
+    <input type="text" class="form-control" id="inpGetID" placeholder="ID Gir" />
+</div>
+<div class="col-md-12">
+    <h4>Silme panel'</h4>
+    <input type="text" class="form-control" id="inpDeleteGetID" placeholder="ID Gir" />
+</div>
+
+@section scriptst {
+    <script>
+        $("#getListAll").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "get",
+                url: "/ExperienceAjax/ListExperience/",
+                success: function (func) {
+                    let datas = jQuery.parseJSON(func);
+                    console.log(datas);
+
+                    let htmlStr = '<table class="table table-bordered"> <tr> <th>#</th> <th>Başlık</th> <th>Tarih</th> </tr> ';
+                    $.each(datas, (index, data) => {
+                        htmlStr += `<tr> <td> ${data.ExperienceID} </td> <td> ${data.Name} </td> <td> ${data.Date} </td> </tr>`
+                    });
+                    htmlStr += '</table>';
+                    $("#listExperience").html(htmlStr);
+                }
+            });
+        });
+
+        $("#addExperience").click(function () {
+            let datas = {
+                Name: $("#inpName").val();
+                Date: $("#inpDate").val();
+            };
+            $.ajax({
+                type: "Post",
+                url: "/ExperienceAjax/AddExperience/",
+                data: datas,
+                success: function (func1) {
+                    let datas = jQuery.parseJSON(func1);
+                    alert("eklendi");
+                }
+            });
+        });
+
+        $("#getListID").click(p => {
+            let id = $("inpGetID").val();
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "get",
+                url: "/ExperienceAjax/GetByID/",
+                data: { ExperienceID: id },
+                success: function (func2) {
+                    let datas = jQuery.parseJSON(func2);
+                    console.log(datas);
+                    let htmlStr = `<table class="table table-hover"> <tr> <th>#</th> <td>${data.ExperienceID}</td> <th>Deneyim</th> <td>${data.Name}</td> <th>Tarih</th> <td>${data.Date}</td> </tr> </table>`;
+                    $("#listExperienceGetID").html(htmlStr);
+                }
+            });
+        });
+
+        $("#deleteExperience").click(p => {
+            let id = $("inpDeleteGetID").val();
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "post",
+                url: "/ExperienceAjax/DeleteExperience/" + id,
+                success: function (func3) {
+                    loadData();
+                }
+            });
+        });
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>

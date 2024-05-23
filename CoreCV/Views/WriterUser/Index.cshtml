@@ -1,0 +1,41 @@
+﻿@model List<WriterUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="getListAll" class="btn btn-outline-primary">verileri getir</button>
+        <button type="button" id="addUser" class="btn btn-outline-warning">kaydet</button>
+    </div>
+</div>
+<h4 class="text-center">Yazar List</h4>
+<div class="p-2" id="listUser">
+    veri gelecek
+</div>
+
+<div class="col-md-12">
+    <input type="text" class="form-control" id="inpName" placeholder="Ad Gir"/>
+    <input type="text" class="form-control" id="inpSurname" placeholder="Ad Gir"/>
+    <input type="text" class="form-control" id="inpUserName" placeholder="Ad Gir"/>
+    <input type="text" class="form-control" id="inpMail" placeholder="Ad Gir"/>
+</div>
+
+@section scriptst{
+    <script>
+        $("getListAll").click(function () {
+            $.ajax({
+                contentType: "application/json",
+                dataType: "json",
+                type: "Get",
+                url: "/WriterUser/ListUser/",
+                success: function (func) {
+                    let users = jQuery.parseJSON(funk);
+                    console.log(users);
+                }
+            });
+        });
+    </script>
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>

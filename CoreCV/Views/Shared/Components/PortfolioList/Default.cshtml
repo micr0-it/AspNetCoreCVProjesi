@@ -1,0 +1,23 @@
+﻿@model List<Portfolio>
+<div class="container">
+    <div class="text-center mb-5">
+        <h2 class="marker marker-center">Projeler</h2>
+    </div>
+    <div class="grid bp-gallery pb-3" data-aos="zoom-in-up" data-aos-delay="100">
+        <div class="grid-sizer"></div>
+        @foreach (var item in Model)
+        {
+            <div class="grid-item">
+                <a href="@item.ProjectUrl">
+                    <figure class="portfolio-item">
+                        <img src="@item.ImgUrl" data-bp="@item.BigImgUrl" />
+                        <figcaption>
+                            <h4 class="h5 mb-0">@item.Name</h4>
+                            @* <div>@item.ProjectUrl</div> *@
+                        </figcaption>
+                    </figure>
+                </a>
+            </div>
+        }
+    </div>
+</div>

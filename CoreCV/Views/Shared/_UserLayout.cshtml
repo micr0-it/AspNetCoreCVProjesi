@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kullanıcı Yönetim Sayfası</title>
+    <partial name="/Areas/User/Views/Partials/CssPartial.cshtml" />
+</head>
+<body>
+    <div class="container-scroller">
+        <partial name="/Areas/User/Views/Partials/NavbarPartial.cshtml" />
+        <div class="container-fluid page-body-wrapper">
+            <partial name="/Areas/User/Views/Partials/SidebarPartial.cshtml" />
+            <div class="main-panel">
+                <div class="content-wrapper">
+
+                    @RenderBody()
+
+                </div>
+                <partial name="/Areas/User/Views/Partials/FooterPartial.cshtml" />
+            </div>
+        </div>
+    </div>
+    <partial name="/Areas/User/Views/Partials/ScriptPartial.cshtml" />
+</body>
+</html>
+

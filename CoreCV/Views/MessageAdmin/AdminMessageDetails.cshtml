@@ -1,0 +1,48 @@
+﻿@model WriterMessage
+@{
+    ViewData["Title"] = "AdminMessageDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AdminMessageDetails</h1>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="WriterMessageID" />
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label"></label>
+                <input asp-for="Subject" class="form-control" />
+                @* <span asp-validation-for="Name" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                @* <span asp-validation-for="Date" class="text-danger"></span> *@
+            </div> 
+            <div class="form-group">
+                <label asp-for="SenderName" class="control-label"></label>
+                <input asp-for="SenderName" class="form-control" />
+                @* <span asp-validation-for="Date" class="text-danger"></span> *@
+            </div> 
+            <div class="form-group">
+                <label asp-for="ReceiverName" class="control-label"></label>
+                <input asp-for="ReceiverName" class="form-control" />
+                @* <span asp-validation-for="Date" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                @* <span asp-validation-for="ImgUrl" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                <label asp-for="MessageContent" class="control-label"></label>
+                <input asp-for="MessageContent" class="form-control" />
+                @* <span asp-validation-for="Description" class="text-danger"></span> *@
+            </div>
+            <a asp-action="ReceiverMessageList" class="btn btn-primary mr-2">Admin Gelen Mesajlar Sayfasına Geri Dön</a>
+            <a asp-action="SenderMessageList" class="btn btn-primary mr-2">Admin Giden Mesajlar Sayfasına Geri Dön</a>
+        </form>
+    </div>
+</div>

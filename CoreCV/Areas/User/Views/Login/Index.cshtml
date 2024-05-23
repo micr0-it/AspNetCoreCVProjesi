@@ -1,0 +1,66 @@
+﻿@model UserLoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skydash Admin</title>
+    <link rel="stylesheet" href="~/skydash/vendors/feather/feather.css">
+    <link rel="stylesheet" href="~/skydash/vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/skydash/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/skydash/css/vertical-layout-light/style.css">
+    <link rel="shortcut icon" href="~/skydash/images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-center auth px-0">
+                <div class="row w-100 mx-0">
+                    <div class="col-lg-4 mx-auto">
+                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
+                            <div class="brand-logo">
+                                <img src="~/skydash/images/logo.svg" alt="logo">
+                            </div>
+                            <h4>Merhaba !</h4>
+                            <h6 class="font-weight-light">Giriş yapmak ister misin ?</h6>
+                            <form class="pt-3" method="post">
+                                <div class="form-group">
+                                    <input type="text" class="form-control form-control-lg" asp-for="Username" placeholder="Username">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control form-control-lg" asp-for="Password" placeholder="Password">
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">Giriş Yap</button>
+                                </div>
+                                <div class="my-2 d-flex justify-content-between align-items-center">                                   
+                                    <button href="#" class="auth-link text-black">Şifremi Unuttum</button>
+                                </div>
+                                <div class="mb-2">                                    
+                                </div>
+                                <div class="text-center mt-4 font-weight-light">
+                                    Henüz hesabın yok mu? <button href="/User/Register/Index/" class="text-primary">Oluştur!</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/skydash/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/skydash/js/off-canvas.js"></script>
+    <script src="~/skydash/js/hoverable-collapse.js"></script>
+    <script src="~/skydash/js/template.js"></script>
+    <script src="~/skydash/js/settings.js"></script>
+    <script src="~/skydash/js/todolist.js"></script>
+</body>
+
+</html>
+

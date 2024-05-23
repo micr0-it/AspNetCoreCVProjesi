@@ -1,0 +1,45 @@
+﻿@model List<SocialMedia>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sosyal Medya Tablosu</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Platform </th>
+                                <th> Bağlantı Adresi </th>
+                                <th> İkon </th>
+                                <th> Güncelle </th>
+                                <th> Sil </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td> @item.SocialMediaID </td>
+                                    <td> @item.Name </td>
+                                    <td> @item.Url </td>
+                                    <td> @item.Icon</td>
+                                    <td style="width:10%"><a href="/SocialMedia/UpdateSocialMedia/@item.SocialMediaID" type="button" class="btn btn-warning btn-fw">Düzenle</a></td>
+                                    <td style="width:10%"><a href="/SocialMedia/DeleteSocialMedia/@item.SocialMediaID" type="button" class="btn btn-danger btn-fw">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                    <a href="/SocialMedia/AddSocialMedia/" type="button" class="btn btn-primary btn-fw">Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

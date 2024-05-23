@@ -1,0 +1,48 @@
+﻿@model List<Experience>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>@ViewBag.Title</h1>
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Deneyim Tablosu</h4>
+                <p class="card-description">
+                    Deneyimleri gösteren tablo
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Unvan </th>
+                                <th> Firma & Tarih </th>
+                                <th> Yapılan İşler </th>
+                                <th> Güncelle </th>
+                                <th> Sil </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td> @item.ExperienceID </td>
+                                    <td> @item.Name </td>
+                                    <td> @item.Company &amp; @item.Date</td>
+                                    <td> @item.Description </td>
+                                    <td style="width:10%"><a href="/Experience/UpdateExperience/@item.ExperienceID" type="button" class="btn btn-warning btn-fw">Düzenle</a></td>
+                                    <td style="width:10%"><a href="/Experience/DeleteExperience/@item.ExperienceID" type="button" class="btn btn-danger btn-fw">Sil</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                    <a href="/Experience/AddExperience/" type="button" class="btn btn-primary btn-fw">Deneyim Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

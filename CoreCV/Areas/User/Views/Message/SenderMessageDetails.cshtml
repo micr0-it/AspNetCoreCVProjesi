@@ -1,0 +1,34 @@
+﻿@model WriterMessage
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Mesaj Detayları</h1>
+
+<div class="col-12 grid-margin">
+    <form>
+        <div class="row">
+            <div class="col-md-12">
+                <div asp-validation-summary="ModelOnly" class="col-md-12"></div>
+                <input type="hidden" asp-for="WriterMessageID" />
+                <div class="form-group row">
+                    <label asp-for="Subject" class="control-label">İçerik</label>
+                    <input asp-for="Subject" class="form-control" />
+                    @* <span asp-validation-for="Content" class="text-danger"></span> *@
+                </div>
+                <div class="form-group row">
+                    <label asp-for="SenderName" class="control-label">İçerik</label>
+                    <input asp-for="SenderName" class="form-control" />
+                    @* <span asp-validation-for="Content" class="text-danger"></span> *@
+                </div>
+                <div class="form-group row">
+                    <label asp-for="Sender" class="control-label">İçerik</label>
+                    <input asp-for="Sender" class="form-control" />
+                    @* <span asp-validation-for="Content" class="text-danger"></span> *@
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

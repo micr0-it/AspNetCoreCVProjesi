@@ -1,0 +1,19 @@
+﻿@model Skill
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yetenek Ekleme Sayfası</h1>
+
+<form class="forms-sample" asp-action="AddSkill" asp-controller="Skill" method="post">
+    <div class="form-group">
+        <label>Yetenek İsmi</label>
+        <input type="text" class="form-control" asp-for="Title" placeholder="Lütfen bir değer giriniz...">
+    </div>
+    <div class="form-group">
+        <label>Yetenek Derecesi</label>
+        <input type="text" class="form-control" asp-for="Value" placeholder="Lütfen bir değer giriniz...">
+    </div>
+    <button type="submit" class="btn btn-primary mr-2">Ekle</button>
+</form>

@@ -1,0 +1,44 @@
+﻿@{
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Corona Admin</title>
+    <partial name="~/Views/Shared/Partials/CssPartial.cshtml">
+</head>
+<body>
+    <div class="container-scroller">
+        <partial name="~/Views/Shared/Partials/SideBarPartial.cshtml">
+            <div class="container-fluid page-body-wrapper">
+                <partial name="~/Views/Shared/Partials/NavbarPartial.cshtml">
+                    <div class="main-panel">
+                        <div class="content-wrapper">
+                            @* <div class="page-header">
+                            <h3 class="page-title"> Basic Tables </h3>
+                            <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Tables</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Basic tables</li>
+                            </ol>
+                            </nav>
+                            </div> *@
+                            @RenderBody()
+                        </div>
+                        @await RenderSectionAsync("scripts", required:false);
+                        <footer class="footer">
+                            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+                            </div>
+                        </footer>
+                    </div>
+            </div>
+    </div>
+    <partial name="~/Views/Shared/Partials/ScriptPartial.cshtml">
+</body>
+</html>
